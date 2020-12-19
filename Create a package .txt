@@ -1,0 +1,175 @@
+	Creating a Package System :
+
+		(	To make a package ,
+		 	it has minimum two file 1-> serviceprovider(class)-->1.1)
+			boot function and 1.2)register function  and 2->composer.json file 
+		)
+
+1)	Create a directory name package
+2)	inside package directory make a new directory(name contact) and it is our main package
+3)	now go inside contact and we have to open the terminal inside contact directory 
+
+	------------------------
+	Creating Composer.json file
+	------------------------
+4) 	run a command "composer init"
+5)	then provide vendor_name/your_package_name ( // vendor name and then package name must)
+6)	then description or perpous of this package 
+7)	then change the author or skip it by n
+8)	then provide type --> (search on google "minimum stability composer" to get more!) my is : dev
+9)	then package type :library
+10) 	any dependency : no
+11) 	any library :no
+12)	After all these steps a composer.json file will be created inside contact (or package !)
+
+	-------------------------
+	Creating Service Provider file
+	-------------------------
+13)	Create new folder inside contact and must name it as (src)
+14)	inside src folder -> create a service provider.php file
+
+	-------------------------
+	configuring (name)ServiceProvider.php file
+	before that the name_ServiceProvider will extends ServiceProvider;
+	Must include namespace and serviceProvider path
+	
+	namespace vendor_name\package_name;
+	use Illuminate\Support\ServiceProvider; ** Must **
+	Ex:
+	namespace TeamBravo\Contact;
+	use Illuminate\Support\ServiceProvider;
+
+	-------------------------
+15) 
+	
+	15.1) provide a namespace inside serviceprovider.php file 
+	15.2)now register inside your_package/composer.php file and write the following code
+	15.3) "autoload":{
+			"psr-4":{
+				"vendor_name\\package_name\\":"src/"                //already given name in no 5
+			}
+		}
+
+	15.4) declear two function by naming boot and register and 
+	register the Provider Path inside Config/app.php inside provider array 
+	
+	****  Naming convention must be vendor_name\package_name\name_ServiceProvider.php::class **** 
+	
+	--------------------------------
+	Configuration of package_serviceProvider.php is finished! // 
+	From 1 to 15 these are the minimum requirement to make a laravel package
+	--------------------------------
+	
+	-------------------------------
+	Our Package is ready but we havent introduced our custome package's namespace () with laravel project 
+	to do that : 
+	-------------------------------
+16) 	go to Composer.json (of root project)
+	
+17)	Find "autoload-dev":{
+		"psr-4":{
+			"vendor_name\\package_name\\":"package/package_name/src"    // this is the main path from the root directory of the package!
+
+		}
+	} 
+18) 	As we have changed inside composer.json (root project) file , sothat we have to run a command to set up the composer.json file with the project
+	and Must the command terminal  has to be root directory . 
+	
+19)	 composer dump-autoload
+	----------------------------------
+	During this command execution if no error occares , the setup is successfully done!
+	---------------------------------
+
+
+	---------------------------------
+	Lets Config route 
+	
+	to show a message we need a route 
+	or connect with controller to blade file we need route !
+
+
+	
+
+	---------------------------------
+
+
+20) 	
+	20.1) Go, inside name_serviceProvider.php -> boot function 
+	20.2) for defining route inside the package (not inside root directory)
+	20.3)$this->loadRoutesFrom(__DIR__.'/routes/web.php'); After writing this code 
+	20.4)create a folder naming routes inside src directory and create a file naming web.php inside routes
+		{path looks -> src/routes/web.php}
+	
+
+	-------------------------------------------
+	Lets config a view File 
+	
+	-------------------------------------------
+21)	
+	21.1) inside name_serviceProvider.php -> boot function 
+	write 
+	$this->loadViewsFrom(__DIR__.'/views',"package_name"); ***package_name is must!
+	
+	21.1)Create views directory inside src folder
+	21.2) Remarks :: To show the view files from web.php or any custom controller 
+		inside view() function the argument will be package_name::blade_file_name
+		Example:
+		Route::get('/say-hi',function(){
+			return view('package_name::blade_file_name');
+			
+		});
+
+	-------------------------------------------
+	Lets config a controller file inside package
+	-------------------------------------------
+
+22)	
+
+	22.1)Create directory inside package_name folder 
+	src->Http->Controllers-> controllerName.php
+	22.2)then change the namespace and the process is :
+	
+	vendor_name\package_name\Http\Controllers;
+
+	22.3)
+	This is the most important*
+	-> inside web.php(package) ->
+	we have to provide namespace .. for better 
+	Example:
+	Route::group(['namespace'=>'vendor_name\package_name\Http\Controllers'],function(){
+		Route::get('/abc','CustomController@index')->name('abc');
+	});
+	
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
