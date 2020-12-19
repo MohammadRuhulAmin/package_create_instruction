@@ -87,9 +87,6 @@
 	to show a message we need a route 
 	or connect with controller to blade file we need route !
 
-
-	
-
 	---------------------------------
 
 
@@ -101,10 +98,9 @@
 		{path looks -> src/routes/web.php}
 	
 
-	-------------------------------------------
+	----------------------------------------------
 	Lets config a view File 
-	
-	-------------------------------------------
+	----------------------------------------------
 21)	
 	21.1) inside name_serviceProvider.php -> boot function 
 	write 
@@ -119,9 +115,9 @@
 			
 		});
 
-	-------------------------------------------
+	------------------------------------------------
 	Lets config a controller file inside package
-	-------------------------------------------
+	------------------------------------------------
 
 22)	
 
@@ -130,6 +126,9 @@
 	22.2)then change the namespace and the process is :
 	
 	vendor_name\package_name\Http\Controllers;
+	
+	use vendor_name\package_name\Models\model_name.php (when we bind the model 
+	inside a controller we have to provide the path)
 
 	22.3)
 	This is the most important*
@@ -137,8 +136,42 @@
 	we have to provide namespace .. for better 
 	Example:
 	Route::group(['namespace'=>'vendor_name\package_name\Http\Controllers'],function(){
-		Route::get('/abc','CustomController@index')->name('abc');
+		Route::get('/abc','CustomController@index')->name('abc')
 	});
+
+
+	----------------------------------------
+	Config-> Model 
+	----------------------------------------
+
+23) 	Inside src-> create Models (similarly  we have to change package name and   folder name) 
+	for migration file we have to add migrations folder.
+
+	now we have to change namespace inside name_model.php file to 
+	
+	namespace vendor_name\package_name\Models;
+	
+	
+	
+	** to migrate our data_table we have to write a code inside name_serviceProvider boot function
+	
+	$this->loadMigrationsFrom(__DIR__.'/database/migrations');
+	
+
+
+
+
+
+
+
+
+
+	
+	 
+
+	
+  
+	
 	
 
  
