@@ -96,7 +96,9 @@
 	20.3)$this->loadRoutesFrom(__DIR__.'/routes/web.php'); After writing this code 
 	20.4)create a folder naming routes inside src directory and create a file naming web.php inside routes
 		{path looks -> src/routes/web.php}
-	
+		
+	<?php
+	 use Illuminate\Support\Facades\Route; //**Must Add the path inside web.php
 
 	----------------------------------------------
 	Lets config a view File 
