@@ -20,7 +20,7 @@
 9)	then package type :library
 10) 	any dependency : no
 11) 	any library :no
-12)	After all these steps a composer.json file will be created inside contact (or package !)
+12)	After all these steps a composer.json file will be created inside contact (or package  !)
 
 	-------------------------
 	Creating Service Provider file
@@ -156,7 +156,30 @@
 	** to migrate our data_table we have to write a code inside name_serviceProvider boot function
 	
 	$this->loadMigrationsFrom(__DIR__.'/database/migrations');
+
+	-------------------------------------
+	Configuration the package!
+	-------------------------------------
+24)	Inside ->  name_serviceProvider.php class
+	 public function  boot (){
+		$this->mergeConfiFrom( __DIR__.'/config/name_class.php','package_name'); // name_class.php = give a switable name!
+		
+	} // go to root project -> config -> name_class.php
 	
+	**Important Note: ** 
+	inside config/name_class.php we will return  ann array 
+	confi/name_class.php class looks like
+	
+	<?php
+	
+	return [
+		"index_name" => "something demo information",
+	];
+
+	now if we want to grab any info from name_class.php to our package controller , the code is 
+	
+	
+	$value = config('package_name.index_name'); // index_name is a index of the array
 
 
 
