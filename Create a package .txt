@@ -194,6 +194,16 @@
 	}
 	after we have to ran a command in root terminal : php artisan vendor:publish
 	->then ->choose your package!
+	
+	
+	Our Package has been created successfully!
+	to upload our package goto -> packagist.org
+	->
+	then we have to upload our package inside github.
+	For that 
+	open terminal inside package_name folder (do not open terminal in package folder)
+	then upload the package_name folder inside github by running the git commands....(which we already know!)
+	
 
 
 
