@@ -207,10 +207,13 @@
 
 
 
-
-
-
-
+	-----------------------------
+	 Installation our package inside a project :
+	-----------------------------
+	1)composer require vendor_name/package_name
+	2)After running 1 no command we have to register inside config/app.php inside, providers
+	3) register process : 
+	vendor_name\package_name\name_serviceProvider::class,
 
 	
 	 
