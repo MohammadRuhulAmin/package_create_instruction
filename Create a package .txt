@@ -128,6 +128,7 @@
 	22.2)then change the namespace and the process is :
 	
 	vendor_name\package_name\Http\Controllers;
+	use Illuminate\Http\Request;
 	
 	use vendor_name\package_name\Models\model_name.php (when we bind the model 
 	inside a controller we have to provide the path)
