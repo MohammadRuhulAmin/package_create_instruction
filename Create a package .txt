@@ -165,7 +165,7 @@
 	-------------------------------------
 24)	Inside ->  name_serviceProvider.php class
 	 public function  boot (){
-		$this->mergeConfigFrom( __DIR__.'/config/name_class.php','package_name'); // name_class.php = give a switable name!
+		$this->mergeConfigFrom(__DIR__.'/config/name_class.php','package_name'); // name_class.php = give a switable name!
 		
 	} // go to package Create a folder and name it as config
 		 config -> name_class.php
@@ -189,7 +189,7 @@
 	so inside-> of name_serviceProvider.php
 	public function boot(){
 		$this->publishes([
-			_DIR_.'/config/name_class.php'=>config_path('name_class.php'), // this config is inside tha package folder
+			__DIR__.'/config/name_class.php'=>config_path('name_class.php'), // this config is inside tha package folder
 		]);
 	}
 	after we have to ran a command in root terminal : php artisan vendor:publish
