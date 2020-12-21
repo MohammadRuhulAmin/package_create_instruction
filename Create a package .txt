@@ -167,11 +167,12 @@
 	 public function  boot (){
 		$this->mergeConfigFrom( __DIR__.'/config/name_class.php','package_name'); // name_class.php = give a switable name!
 		
-	} // go to root project -> config -> name_class.php
+	} // go to package Create a folder and name it as config
+		 config -> name_class.php
 	
 	**Important Note: ** 
 	inside config/name_class.php we will return  ann array 
-	confi/name_class.php class looks like
+	config/name_class.php class looks like
 	
 	<?php
 	
@@ -183,7 +184,16 @@
 	
 	
 	$value = config('package_name.index_name'); // index_name is a index of the array
-
+	
+	As our package is ready but we have to publish the package , if further we use inside other project we have to Publish the 		package	
+	so inside-> of name_serviceProvider.php
+	public function boot(){
+		$this->publishes([
+			_DIR_.'/config/name_class.php'=>config_path('name_class.php'), // this config is inside tha package folder
+		]);
+	}
+	after we have to ran a command in root terminal : php artisan vendor:publish
+	->then ->choose your package!
 
 
 
