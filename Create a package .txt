@@ -154,6 +154,10 @@
 	
 	namespace vendor_name\package_name\Models;
 	
+	To use the model inside a controller the process is
+	use vendor_name\package_name\Folder_name\class_name;
+	 Example:
+	use TeamBravo\Seed\Models\Student;
 	
 	
 	** to migrate our data_table we have to write a code inside name_serviceProvider boot function
