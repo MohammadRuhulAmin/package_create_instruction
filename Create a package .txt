@@ -212,6 +212,7 @@
 	
 	//---------------------------
 	Adding Config file ::
+	https://www.larashout.com/laravel-package-development-part-3-adding-configuration-file
 	//---------------------------
 	https://laravelpackage.com/07-configuration-files.html#exporting
 	
