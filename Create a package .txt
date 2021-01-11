@@ -209,7 +209,13 @@
 	then upload the package_name folder inside github by running the git commands....(which we already know!)
 	
 
-
+	
+	//---------------------------
+	Adding Config file ::
+	//---------------------------
+	https://laravelpackage.com/07-configuration-files.html#exporting
+	
+	
 
 	-----------------------------
 	 Installation our package inside a project :
@@ -218,6 +224,8 @@
 	2)After running 1 no command we have to register inside config/app.php inside, providers
 	3) register process : 
 	vendor_name\package_name\name_serviceProvider::class,
+	
+	
 
 	
 	 
